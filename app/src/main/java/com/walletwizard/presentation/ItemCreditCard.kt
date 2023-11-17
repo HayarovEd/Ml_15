@@ -29,6 +29,8 @@ import com.walletwizard.domain.model.basedto.CardsCredit
 import com.expensemanager.plus.ui.theme.green
 import com.expensemanager.plus.ui.theme.lightGrey
 import com.walletwizard.presentation.MainEvent
+import com.walletwizard.presentation.RowCard
+import com.walletwizard.presentation.RowData
 
 @Composable
 fun ItemCreditCard(

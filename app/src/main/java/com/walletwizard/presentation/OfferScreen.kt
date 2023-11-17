@@ -1,4 +1,4 @@
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import android.annotation.SuppressLint
 import android.widget.TextView
@@ -28,6 +28,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -42,15 +43,16 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.text.HtmlCompat
 import coil.compose.AsyncImage
-import com.expensemanager.plus.R
+import com.walletwizard.R
 import com.walletwizard.data.VALUE_ONE
 import com.walletwizard.domain.model.ElementOffer
 import com.walletwizard.domain.model.StatusApplication
 import com.walletwizard.domain.model.basedto.BaseState
-import com.expensemanager.plus.ui.theme.baseBackground
-import com.expensemanager.plus.ui.theme.baseText
-import com.expensemanager.plus.ui.theme.green
-import com.walletwizard.presentation.MainEvent
+import com.walletwizard.ui.theme.baseBackground
+import com.walletwizard.ui.theme.baseText
+import com.walletwizard.ui.theme.cardColor
+import com.walletwizard.ui.theme.orange
+import com.walletwizard.ui.theme.white
 
 @SuppressLint("ResourceAsColor")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -83,7 +85,7 @@ fun OfferScreen(
                             )
                         }) {
                             Icon(
-                                imageVector = ImageVector.vectorResource(id = R.drawable.baseline_arrow_back_ios_new_24),
+                                imageVector = ImageVector.vectorResource(id = R.drawable.back),
                                 tint = baseText,
                                 contentDescription = ""
                             )
@@ -91,9 +93,9 @@ fun OfferScreen(
                         Spacer(modifier = modifier.width(15.dp))
                         Text(
                             color = baseText,
-                            fontStyle = FontStyle(R.font.gotham),
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight(500),
+                            fontStyle = FontStyle(R.font.montserrat),
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight(600),
                             text = elementOffer.name
                         )
                     }
@@ -106,18 +108,18 @@ fun OfferScreen(
             ) {
                 Button(
                     modifier = modifier
-                        .padding(horizontal = 50.dp)
+                        .padding(horizontal = 16.dp)
                         .fillMaxWidth()
                         .weight(3f),
                     //.padding(horizontal = 15.dp)
                     //.fillMaxWidth(),
-                    shape = RoundedCornerShape(10.dp),
+                    shape = RoundedCornerShape(80.dp),
                     contentPadding = PaddingValues(
                         vertical = 16.dp,
                     ),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = green,
-                        contentColor = baseBackground,
+                        containerColor = orange,
+                        contentColor = white,
                     ),
                     onClick = {
                         onEvent(
@@ -131,9 +133,9 @@ fun OfferScreen(
                     Text(
                         text = stringResource(id = R.string.checkout),
                         style = TextStyle(
-                            fontSize = 14.sp,
-                            fontFamily = FontFamily(Font(R.font.gotham)),
-                            fontWeight = FontWeight(500),
+                            fontSize = 24.sp,
+                            fontFamily = FontFamily(Font(R.font.montserrat)),
+                            fontWeight = FontWeight(600),
                         )
                     )
                 }
@@ -212,7 +214,8 @@ fun OfferScreen(
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
                 //.shadow(elevation = 10.dp, spotColor = grey, ambientColor = grey, shape = RoundedCornerShape(20.dp))
-                .background(color = baseBackground)
+                .clip(shape = RoundedCornerShape(20.dp))
+                .background(color = cardColor)
                 .padding(16.dp)
             //.clip(shape = RoundedCornerShape(20.dp))
             //.background(color = lightGrey)
@@ -225,7 +228,7 @@ fun OfferScreen(
                 contentScale = ContentScale.FillWidth,
                 contentDescription = ""
             )
-            Spacer(modifier = modifier.height(26.dp))
+            Spacer(modifier = modifier.height(25.dp))
             AndroidView(
                 modifier = modifier
                     .fillMaxWidth(),
@@ -255,7 +258,6 @@ fun OfferScreen(
             RowData(
                 title = stringResource(id = R.string.amount),
                 content = elementOffer.amount,
-                colorBackground = baseBackground
             )
             if (elementOffer.showPercent == VALUE_ONE) {
                 /*Divider(
@@ -266,7 +268,6 @@ fun OfferScreen(
                 RowData(
                     title = stringResource(id = R.string.bet),
                     content = elementOffer.bet,
-                    colorBackground = baseBackground
                 )
             }
             if (elementOffer.showTerm == VALUE_ONE) {
@@ -278,10 +279,9 @@ fun OfferScreen(
                 RowData(
                     title = stringResource(id = R.string.term),
                     content = elementOffer.term,
-                    colorBackground = baseBackground
                 )
             }
-            Spacer(modifier = modifier.height(17.dp))
+            Spacer(modifier = modifier.height(31.dp))
             RowCard(
                 showVisa = elementOffer.showVisa,
                 showMaster = elementOffer.showMaster,

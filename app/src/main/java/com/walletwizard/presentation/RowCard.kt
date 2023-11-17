@@ -1,4 +1,4 @@
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -9,7 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import com.expensemanager.plus.R
+import com.walletwizard.R
 import com.walletwizard.data.VALUE_ONE
 
 @Composable
