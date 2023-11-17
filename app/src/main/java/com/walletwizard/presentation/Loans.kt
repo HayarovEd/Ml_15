@@ -1,5 +1,5 @@
 
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -17,8 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.walletwizard.domain.model.basedto.BaseState
 import com.walletwizard.domain.model.basedto.Loan
-import com.expensemanager.plus.ui.theme.baseBackground
-import com.walletwizard.presentation.MainEvent
+import com.walletwizard.ui.theme.baseBackground
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable

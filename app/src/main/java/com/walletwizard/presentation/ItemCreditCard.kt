@@ -1,5 +1,5 @@
 
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,17 +20,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.expensemanager.plus.R
+import com.walletwizard.R
 import com.walletwizard.data.VALUE_ONE
 import com.walletwizard.domain.model.ElementOffer
 import com.walletwizard.domain.model.StatusApplication
 import com.walletwizard.domain.model.basedto.BaseState
 import com.walletwizard.domain.model.basedto.CardsCredit
-import com.expensemanager.plus.ui.theme.green
-import com.expensemanager.plus.ui.theme.lightGrey
-import com.walletwizard.presentation.MainEvent
-import com.walletwizard.presentation.RowCard
-import com.walletwizard.presentation.RowData
+import com.walletwizard.ui.theme.baseText
+import com.walletwizard.ui.theme.cardColor
 
 @Composable
 fun ItemCreditCard(
@@ -49,9 +46,9 @@ fun ItemCreditCard(
                 shape = RoundedCornerShape(20.dp)
             )*/
             //.border(width = 3.dp, color = grey, shape = RoundedCornerShape(15.dp))
-            .clip(shape = RoundedCornerShape(10.dp))
-            .background(color = lightGrey)
-            .padding(13.dp)
+            .clip(shape = RoundedCornerShape(20.dp))
+            .background(color = cardColor)
+            .padding(16.dp)
     ) {
         AsyncImage(
             modifier = modifier
@@ -88,12 +85,12 @@ fun ItemCreditCard(
             contentScale = ContentScale.FillWidth,
             contentDescription = ""
         )
-        Spacer(modifier = modifier.height(15.dp))
+        Spacer(modifier = modifier.height(14.dp))
         Text(
-            color = green,
-            fontStyle = FontStyle(R.font.gotham),
-            fontSize = 18.sp,
-            fontWeight = FontWeight(500),
+            color = baseText,
+            fontStyle = FontStyle(R.font.montserrat),
+            fontSize = 19.sp,
+            fontWeight = FontWeight(600),
             text = card.name
         )
         /*Row(
@@ -112,7 +109,7 @@ fun ItemCreditCard(
                 rang = card.score
             )
         }*/
-        Spacer(modifier = modifier.height(15.dp))
+        Spacer(modifier = modifier.height(14.dp))
         RowData(
             title = stringResource(id = R.string.amount),
             content = card.summPrefix +" " + card.summMin +" " + card.summMid +" " + card.summMax +" " + card.summPostfix
@@ -139,7 +136,7 @@ fun ItemCreditCard(
                 content = card.termPrefix +" "+ card.termMin +" " + card.termMid +" " + card.termMax +" " + card.termPostfix
             )
         }
-        Spacer(modifier = modifier.height(20.dp))
+        Spacer(modifier = modifier.height(14.dp))
         RowCard(
             showVisa = card.showVisa,
             showMaster = card.showMastercard,
@@ -148,7 +145,7 @@ fun ItemCreditCard(
             showQivi = card.showQiwi,
             showCache = card.showCash
         )
-        Spacer(modifier = modifier.height(20.dp))
+        Spacer(modifier = modifier.height(14.dp))
         RowButtons(
             titleOffer = card.orderButtonText,
             onEvent = onEvent,

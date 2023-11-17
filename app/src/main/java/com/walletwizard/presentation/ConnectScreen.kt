@@ -1,4 +1,4 @@
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -29,8 +29,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.expensemanager.plus.R
-import com.expensemanager.plus.R.string
+import com.walletwizard.R
+import com.walletwizard.R.string
+import com.walletwizard.R.drawable
 import com.walletwizard.data.VALUE_ONE
 import com.walletwizard.domain.model.basedto.BaseDto
 import com.walletwizard.domain.model.basedto.BaseState
@@ -40,12 +41,11 @@ import com.walletwizard.domain.model.basedto.BaseState.Loans
 import com.walletwizard.domain.model.basedto.CardsCredit
 import com.walletwizard.domain.model.basedto.CardsDebit
 import com.walletwizard.domain.model.basedto.CardsInstallment
-import com.expensemanager.plus.ui.theme.baseBackground
-import com.expensemanager.plus.ui.theme.baseText
-import com.expensemanager.plus.ui.theme.green
-import com.expensemanager.plus.ui.theme.grey
-import com.walletwizard.presentation.MainEvent
-import com.walletwizard.presentation.WebViewScreenPrimary
+import com.walletwizard.ui.theme.baseBackground
+import com.walletwizard.ui.theme.baseText
+import com.walletwizard.ui.theme.grey
+import com.walletwizard.ui.theme.orange
+import com.walletwizard.ui.theme.white
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -84,7 +84,7 @@ fun ConnectScreen(
                     Row(
                         modifier = modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 24.dp),
+                            .padding(horizontal = 16.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -92,7 +92,7 @@ fun ConnectScreen(
                             modifier = modifier
                                 .fillMaxWidth(),
                             color = baseText,
-                            fontStyle = FontStyle(R.font.gotham),
+                            fontStyle = FontStyle(R.font.montserrat),
                             fontSize = 22.sp,
                             fontWeight = FontWeight(600),
                             text = title,
@@ -113,7 +113,7 @@ fun ConnectScreen(
         },
         bottomBar = {
             BottomAppBar(
-                containerColor = baseBackground,
+                containerColor = white,
                 modifier = modifier
                 //.clip(shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp))
             ) {
@@ -149,7 +149,7 @@ fun ConnectScreen(
                     }
                     if (!db.loans.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Loans) green else grey,
+                            color = if (baseState is Loans) orange else grey,
                             content = stringResource(id = string.loans),
                             icon = if (baseState is Loans) ImageVector.vectorResource(id = drawable.loans_fill) else ImageVector.vectorResource(
                                 id = drawable.loans
@@ -159,7 +159,7 @@ fun ConnectScreen(
                     }
                     if (!db.cards.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Cards) green else grey,
+                            color = if (baseState is Cards) orange else grey,
                             content = stringResource(id = string.cards),
                             icon = if (baseState is Cards) ImageVector.vectorResource(id = drawable.cards_fill) else ImageVector.vectorResource(
                                 id = drawable.cards
@@ -169,7 +169,7 @@ fun ConnectScreen(
                     }
                     if (!db.credits.isNullOrEmpty()) {
                         ItemBottomBar(
-                            color = if (baseState is Credits) green else grey,
+                            color = if (baseState is Credits) orange else grey,
                             content = stringResource(id = string.credits),
                             icon = if (baseState is Credits) ImageVector.vectorResource(id = drawable.credits_fill) else ImageVector.vectorResource(
                                 id = drawable.credits
@@ -250,7 +250,7 @@ fun ItemBottomBar(
         }
         Text(
             color = color,
-            fontStyle = FontStyle(R.font.gotham),
+            fontStyle = FontStyle(R.font.montserrat),
             fontSize = 11.sp,
             fontWeight = FontWeight(700),
             text = content

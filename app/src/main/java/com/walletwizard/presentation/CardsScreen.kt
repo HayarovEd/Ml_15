@@ -1,4 +1,4 @@
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -26,17 +26,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.expensemanager.plus.R
+import com.walletwizard.R
 import com.walletwizard.domain.model.TypeCard
 import com.walletwizard.domain.model.basedto.BaseState
 import com.walletwizard.domain.model.basedto.CardsCredit
 import com.walletwizard.domain.model.basedto.CardsDebit
 import com.walletwizard.domain.model.basedto.CardsInstallment
-import com.expensemanager.plus.ui.theme.baseBackground
-import com.expensemanager.plus.ui.theme.btGrey
-import com.expensemanager.plus.ui.theme.darkGreen
-import com.expensemanager.plus.ui.theme.lightGrey
-import com.walletwizard.presentation.MainEvent
+import com.walletwizard.ui.theme.baseBackground
+import com.walletwizard.ui.theme.baseText
+import com.walletwizard.ui.theme.cardColor
+import com.walletwizard.ui.theme.orange
+import com.walletwizard.ui.theme.white
 
 @Composable
 fun CardsScreen(
@@ -60,8 +60,9 @@ fun CardsScreen(
     ) {
         Row(
             modifier = modifier
+                .padding(horizontal = 16.dp)
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+                .background(color = cardColor),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -71,20 +72,20 @@ fun CardsScreen(
                         .weight(1f),
                     onClick = { onEvent(MainEvent.OnChangeTypeCard(TypeCard.CardCredit)) },
                     colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = if (typeCard is TypeCard.CardCredit) darkGreen else lightGrey
+                        containerColor = if (typeCard is TypeCard.CardCredit) orange else cardColor
                     ),
-                    shape = RoundedCornerShape(15.dp),
-                    contentPadding = PaddingValues(9.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    contentPadding = PaddingValues(5.dp),
                     /*border = BorderStroke(
                         width = 1.dp,
                         color = if (typeCard is TypeCard.CardCredit) green else baseBackground
                     )*/
                 ) {
                     Text(
-                        color = if (typeCard is TypeCard.CardCredit) baseBackground else btGrey,
-                        fontStyle = FontStyle(R.font.gotham),
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight(500),
+                        color = if (typeCard is TypeCard.CardCredit) white else baseText,
+                        fontStyle = FontStyle(R.font.montserrat),
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight(600),
                         text = stringResource(id = R.string.credit),
                         textAlign = TextAlign.Center
                     )
@@ -96,20 +97,20 @@ fun CardsScreen(
                         .weight(1f),
                     onClick = { onEvent(MainEvent.OnChangeTypeCard(TypeCard.CardDebit)) },
                     colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = if (typeCard is TypeCard.CardDebit) darkGreen else lightGrey
+                        containerColor = if (typeCard is TypeCard.CardDebit) orange else cardColor
                     ),
-                    shape = RoundedCornerShape(15.dp),
-                    contentPadding = PaddingValues(9.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    contentPadding = PaddingValues(5.dp),
                     /*border = BorderStroke(
                         width = 1.dp,
                         color = if (typeCard is TypeCard.CardDebit) green else baseBackground
                     )*/
                 ) {
                     Text(
-                        color = if (typeCard is TypeCard.CardDebit) baseBackground else btGrey,
-                        fontStyle = FontStyle(R.font.gotham),
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight(500),
+                        color = if (typeCard is TypeCard.CardDebit) white else baseText,
+                        fontStyle = FontStyle(R.font.montserrat),
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight(600),
                         text = stringResource(id = R.string.debit),
                         textAlign = TextAlign.Center
                     )
@@ -121,27 +122,27 @@ fun CardsScreen(
                         .weight(1f),
                     onClick = { onEvent(MainEvent.OnChangeTypeCard(TypeCard.CardInstallment)) },
                     colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = if (typeCard is TypeCard.CardInstallment) darkGreen else lightGrey
+                        containerColor = if (typeCard is TypeCard.CardInstallment) orange else cardColor
                     ),
-                    shape = RoundedCornerShape(15.dp),
-                    contentPadding = PaddingValues(vertical = 9.dp),
+                    shape = RoundedCornerShape(8.dp),
+                    contentPadding = PaddingValues(vertical = 5.dp),
                    /* border = BorderStroke(
                         width = 1.dp,
                         color = if (typeCard is TypeCard.CardInstallment) green else baseBackground
                     )*/
                 ) {
                     Text(
-                        color = if (typeCard is TypeCard.CardInstallment) baseBackground else btGrey,
-                        fontStyle = FontStyle(R.font.gotham),
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight(500),
+                        color = if (typeCard is TypeCard.CardInstallment) white else baseText,
+                        fontStyle = FontStyle(R.font.montserrat),
+                        fontSize = 13.sp,
+                        fontWeight = FontWeight(600),
                         text = stringResource(id = R.string.installment),
                         textAlign = TextAlign.Center
                     )
                 }
             }
         }
-        Spacer(modifier = modifier.height(15.dp))
+        Spacer(modifier = modifier.height(20.dp))
         when (typeCard) {
             TypeCard.CardCredit -> {
                 LazyColumn(

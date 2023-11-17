@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.expensemanager.plus.presentation.ConnectScreen
 import com.walletwizard.domain.model.StatusApplication
 import com.walletwizard.domain.model.TypeCard
 import com.walletwizard.domain.model.basedto.BaseState
