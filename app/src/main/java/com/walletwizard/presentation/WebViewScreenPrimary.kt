@@ -1,4 +1,4 @@
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -32,8 +32,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.FileProvider
-import com.expensemanager.plus.ui.theme.baseBackground
-import com.walletwizard.presentation.MainEvent
+import com.walletwizard.ui.theme.baseBackground
 import java.io.File
 import java.io.IOException
 

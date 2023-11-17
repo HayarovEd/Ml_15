@@ -1,4 +1,4 @@
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,8 +13,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.expensemanager.plus.R
-import com.expensemanager.plus.ui.theme.green
+import com.walletwizard.R
+import com.walletwizard.ui.theme.white
 
 @Preview
 @Composable
@@ -24,7 +24,7 @@ fun SplashScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(color = green)
+            .background(color = white)
             .padding(25.dp)
     ) {
         Image(

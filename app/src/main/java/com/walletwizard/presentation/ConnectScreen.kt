@@ -45,6 +45,7 @@ import com.expensemanager.plus.ui.theme.baseText
 import com.expensemanager.plus.ui.theme.green
 import com.expensemanager.plus.ui.theme.grey
 import com.walletwizard.presentation.MainEvent
+import com.walletwizard.presentation.WebViewScreenPrimary
 
 
 @OptIn(ExperimentalMaterial3Api::class)

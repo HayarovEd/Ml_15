@@ -1,4 +1,4 @@
-package com.expensemanager.plus.presentation
+package com.walletwizard.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -48,10 +48,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.FileProvider
-import com.expensemanager.plus.R
-import com.expensemanager.plus.ui.theme.baseBackground
-import com.expensemanager.plus.ui.theme.baseText
-import com.walletwizard.presentation.MainEvent
+import com.walletwizard.R
+import com.walletwizard.ui.theme.baseBackground
+import com.walletwizard.ui.theme.baseText
 import java.io.File
 import java.io.IOException
 
@@ -99,7 +98,7 @@ fun WebViewScreen(
                             onEvent(MainEvent.Reconnect)
                         }) {
                             Icon(
-                                imageVector = ImageVector.vectorResource(id = R.drawable.baseline_arrow_back_ios_new_24),
+                                imageVector = ImageVector.vectorResource(id = R.drawable.back),
                                 tint = baseText,
                                 contentDescription = ""
                             )
@@ -107,9 +106,9 @@ fun WebViewScreen(
                         Spacer(modifier = modifier.width(8.dp))
                         Text(
                             color = baseText,
-                            fontStyle = FontStyle(R.font.gotham),
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight(500),
+                            fontStyle = FontStyle(R.font.montserrat),
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight(600),
                             text = offerName
                         )
                     }

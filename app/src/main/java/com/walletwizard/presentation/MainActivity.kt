@@ -17,7 +17,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
-import com.expensemanager.plus.presentation.Sample
 import com.walletwizard.data.APPS_FLYER
 import com.walletwizard.data.LINK
 import com.walletwizard.data.SHARED_APPSFLYER_INSTANCE_ID
