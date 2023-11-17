@@ -212,6 +212,9 @@ fun OfferScreen(
         Column(
             modifier = modifier
                 .padding(paddingValues)
+                .fillMaxWidth()
+                .background(color = baseBackground)
+                .padding(16.dp)
                 .verticalScroll(rememberScrollState())
                 //.shadow(elevation = 10.dp, spotColor = grey, ambientColor = grey, shape = RoundedCornerShape(20.dp))
                 .clip(shape = RoundedCornerShape(20.dp))
