@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("kotlin-kapt")
-    id ("dagger.hilt.android.plugin")
-    id ("com.huawei.agconnect")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("com.huawei.agconnect")
 }
 
 android {
@@ -23,9 +23,9 @@ android {
         }
     }
 
-    /*signingConfigs {
+    signingConfigs {
         getByName("debug") {
-            storeFile = file("ID531.keystore")
+            storeFile = file("ID5311.keystore")
             keyAlias = "mypass"
             storePassword = "com.walletwizard"
             keyPassword = "com.walletwizard"
@@ -33,11 +33,11 @@ android {
         create("release") {
             keyAlias = "mypass"
             keyPassword = "com.walletwizard"
-            storeFile = file("ID531.keystore")
+            storeFile = file("ID5311.keystore")
             storePassword = "com.walletwizard"
             enableV2Signing = true
         }
-    }*/
+    }
 
     buildTypes {
         release {
@@ -46,10 +46,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-           // signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("release")
         }
         debug {
-            //signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -91,45 +91,45 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     // Icons
-    implementation ("androidx.compose.material:material-icons-extended:1.5.4")
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
 
     // Coil
-    implementation ("io.coil-kt:coil-compose:2.4.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
-    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 
     //Dagger
-    implementation ("com.google.dagger:hilt-android:2.48")
-    annotationProcessor ("com.google.dagger:hilt-compiler:2.48")
-    kapt ("com.google.dagger:hilt-compiler:2.48")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.1.0")
+    implementation("com.google.dagger:hilt-android:2.48")
+    annotationProcessor("com.google.dagger:hilt-compiler:2.48")
+    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 
     //retrofit
-    implementation ("com.google.code.gson:gson:2.10.1")
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //UserX
     implementation(files("libs\\UserX-4.2.2.aar"))
 
     //AppMetrica
-    implementation ("com.yandex.android:mobmetricalib:5.3.0")
+    implementation("com.yandex.android:mobmetricalib:5.3.0")
 
     //MyTracker
-    implementation ("com.my.tracker:mytracker-sdk:3.1.1")
+    implementation("com.my.tracker:mytracker-sdk:3.1.1")
 
     //Appsflyer
-    implementation ("com.appsflyer:af-android-sdk:6.12.2")
+    implementation("com.appsflyer:af-android-sdk:6.12.2")
 
     //HMS
-    implementation ("com.huawei.hms:push:6.11.0.300")
-    implementation ("com.huawei.hms:hmscoreinstaller:6.7.0.300")
-    implementation ("com.huawei.hms:ads-identifier:3.4.62.300")
-    implementation ("com.huawei.hms:ads-installreferrer:3.4.62.300")
+    implementation("com.huawei.hms:push:6.11.0.300")
+    implementation("com.huawei.hms:hmscoreinstaller:6.7.0.300")
+    implementation("com.huawei.hms:ads-identifier:3.4.62.300")
+    implementation("com.huawei.hms:ads-installreferrer:3.4.62.300")
 
 }
 
 
-kapt{
+kapt {
     correctErrorTypes = true
 }
