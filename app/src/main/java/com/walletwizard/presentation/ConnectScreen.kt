@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -131,6 +132,7 @@ fun ConnectScreen(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             IconButton(
+                                modifier = modifier.size(70.dp),
                                 onClick = onClickPrimary
                             ) {
                                 Image(
